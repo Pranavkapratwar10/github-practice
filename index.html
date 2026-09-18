@@ -3,134 +3,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My CI/CD Project</title>
+    <title>Professional Calculator - Multi-Mode Scientific Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <div class="calculator-container">
+        <!-- Calculator Body -->
+        <div class="calculator">
+            <!-- Branding -->
+            <div class="calculator-header">
+                <div class="brand">CASIO fx-100+</div>
+                <div class="solar-panel"></div>
+            </div>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">🚀 Pranav.dev</div>
+            <!-- Display -->
+            <div class="display-container">
+                <div class="display-mode" id="displayMode">COMP</div>
+                <div class="display-secondary" id="displaySecondary"></div>
+                <div class="display-main" id="displayMain">0</div>
+                <div class="display-memory" id="displayMemory"></div>
+            </div>
 
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
+            <!-- Mode Selection -->
+            <div class="mode-buttons">
+                <button class="mode-btn active" data-mode="basic" title="Basic Calculator">COMP</button>
+                <button class="mode-btn" data-mode="scientific" title="Scientific">SCI</button>
+                <button class="mode-btn" data-mode="matrix" title="Matrix">MAT</button>
+                <button class="mode-btn" data-mode="currency" title="Currency">$€¥</button>
+            </div>
+
+            <!-- Button Grid -->
+            <div class="buttons-grid" id="buttonsGrid">
+                <!-- Basic Mode Buttons (Default) -->
+                <div class="calculator-buttons basic-mode active">
+                    <!-- Row 1 -->
+                    <button class="btn func-btn" data-action="shift">SHIFT</button>
+                    <button class="btn func-btn" data-action="alpha">ALPHA</button>
+                    <button class="btn func-btn" data-action="mode">MODE</button>
+                    <button class="btn func-btn" data-action="clear">AC</button>
+                    <button class="btn func-btn" data-action="delete">DEL</button>
+
+                    <!-- Row 2 -->
+                    <button class="btn func-btn small-text" data-action="x²">
+                        <span class="main">x²</span>
+                        <span class="shift">√</span>
+                    </button>
+                    <button class="btn func-btn small-text" data-action="xʸ">
+                        <span class="main">xʸ</span>
+                        <span class="shift">ʸ√x</span>
+                    </button>
+                    <button class="btn func-btn small-text" data-action="log">
+                        <span class="main">log</span>
+                        <span class="shift">10ˣ</span>
+                    </button>
+                    <button class="btn func-btn small-text" data-action="ln">
+                        <span class="main">ln</span>
+                        <span class="shift">eˣ</span>
+                    </button>
+                    <button class="btn func-btn small-text" data-action="reciprocal">
+                        <span class="main">1/x</span>
+                        <span class="shift">|x|</span>
+                    </button>
+
+                    <!-- Row 3 -->
+                    <button class="btn func-btn small-text" data-action="sin">
+                        <span class="main">sin</span>
+                        <span class="shift">sin⁻¹</span>
+                    </button>
+                    <button class="btn func-btn small-text" data-action="cos">
+                        <span class="main">cos</span>
+                        <span class="shift">cos⁻¹</span>
+                    </button>
+                    <button class="btn func-btn small-text" data-action="tan">
+                        <span class="main">tan</span>
+                        <span class="shift">tan⁻¹</span>
+                    </button>
+                    <button class="btn func-btn" data-action="(">(</button>
+                    <button class="btn func-btn" data-action=")">)</button>
+
+                    <!-- Row 4 -->
+                    <button class="btn func-btn small-text" data-action="mem-clear">
+                        <span class="main">MC</span>
+                    </button>
+                    <button class="btn num-btn" data-value="7">7</button>
+                    <button class="btn num-btn" data-value="8">8</button>
+                    <button class="btn num-btn" data-value="9">9</button>
+                    <button class="btn op-btn" data-action="/">÷</button>
+
+                    <!-- Row 5 -->
+                    <button class="btn func-btn small-text" data-action="mem-add">
+                        <span class="main">M+</span>
+                    </button>
+                    <button class="btn num-btn" data-value="4">4</button>
+                    <button class="btn num-btn" data-value="5">5</button>
+                    <button class="btn num-btn" data-value="6">6</button>
+                    <button class="btn op-btn" data-action="*">×</button>
+
+                    <!-- Row 6 -->
+                    <button class="btn func-btn small-text" data-action="mem-sub">
+                        <span class="main">M-</span>
+                    </button>
+                    <button class="btn num-btn" data-value="1">1</button>
+                    <button class="btn num-btn" data-value="2">2</button>
+                    <button class="btn num-btn" data-value="3">3</button>
+                    <button class="btn op-btn" data-action="-">−</button>
+
+                    <!-- Row 7 -->
+                    <button class="btn func-btn small-text" data-action="mem-recall">
+                        <span class="main">MR</span>
+                    </button>
+                    <button class="btn num-btn" data-value="0">0</button>
+                    <button class="btn num-btn" data-value=".">.</button>
+                    <button class="btn func-btn" data-action="pi">π</button>
+                    <button class="btn op-btn" data-action="+">+</button>
+
+                    <!-- Row 8 -->
+                    <button class="btn func-btn" data-action="ans">ANS</button>
+                    <button class="btn func-btn" data-action="exp">EXP</button>
+                    <button class="btn func-btn" data-action="%" title="Percentage">%</button>
+                    <button class="btn equals-btn" data-action="=">=</button>
+                </div>
+            </div>
         </div>
 
-        <button id="themeBtn">🌙</button>
-    </nav>
-
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-
-        <div class="hero-content">
-
-            <span class="badge">⚡ GitHub → Netlify CI/CD</span>
-
-            <h1>
-                My First
-                <span>CI/CD Project</span>
-            </h1>
-
-            <p id="message">
-                Learning Git, GitHub and automatic deployment through real-world practice.
-            </p>
-
-            <div class="buttons">
-                <button id="changeBtn" class="primary-btn">
-                    Change Message
-                </button>
-
-                <button id="countBtn" class="secondary-btn">
-                    Click Me
-                </button>
+        <!-- History Panel -->
+        <div class="history-panel" id="historyPanel">
+            <div class="history-header">
+                <h3>History</h3>
+                <button class="clear-history-btn" id="clearHistory">Clear</button>
             </div>
-
-            <p class="counter">
-                Button clicked:
-                <strong id="count">0</strong> times
-            </p>
-
+            <div class="history-list" id="historyList">
+                <div class="history-empty">No calculations yet</div>
+            </div>
         </div>
+    </div>
 
-    </section>
-
-
-    <!-- About -->
-    <section id="about" class="section">
-
-        <h2>What I'm Learning</h2>
-
-        <div class="cards">
-
-            <div class="card">
-                <div class="icon">📦</div>
-                <h3>Git</h3>
-                <p>
-                    Version control for tracking changes in my project.
-                </p>
+    <!-- Matrix Calculator Modal -->
+    <div class="modal" id="matrixModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Matrix Calculator</h2>
+                <button class="close-btn" data-close="matrixModal">×</button>
             </div>
+            <div class="modal-body">
+                <div class="matrix-controls">
+                    <div class="matrix-size">
+                        <label>Matrix A Size:</label>
+                        <input type="number" id="matrixARows" value="2" min="1" max="5">
+                        ×
+                        <input type="number" id="matrixACols" value="2" min="1" max="5">
+                        <button class="btn-small" id="generateMatrixA">Generate</button>
+                    </div>
+                </div>
+                <div class="matrix-input" id="matrixAInput"></div>
+                
+                <div class="matrix-operations">
+                    <button class="matrix-op-btn" data-op="determinant">Determinant</button>
+                    <button class="matrix-op-btn" data-op="transpose">Transpose</button>
+                    <button class="matrix-op-btn" data-op="inverse">Inverse</button>
+                    <button class="matrix-op-btn" data-op="add">A + B</button>
+                    <button class="matrix-op-btn" data-op="subtract">A - B</button>
+                    <button class="matrix-op-btn" data-op="multiply">A × B</button>
+                </div>
 
-            <div class="card">
-                <div class="icon">🐙</div>
-                <h3>GitHub</h3>
-                <p>
-                    Storing my code online and managing the repository.
-                </p>
+                <div class="matrix-controls" id="matrixBControls" style="display:none;">
+                    <div class="matrix-size">
+                        <label>Matrix B Size:</label>
+                        <input type="number" id="matrixBRows" value="2" min="1" max="5">
+                        ×
+                        <input type="number" id="matrixBCols" value="2" min="1" max="5">
+                        <button class="btn-small" id="generateMatrixB">Generate</button>
+                    </div>
+                </div>
+                <div class="matrix-input" id="matrixBInput"></div>
+
+                <div class="matrix-result">
+                    <h3>Result:</h3>
+                    <div id="matrixResult">Perform an operation to see the result</div>
+                </div>
             </div>
-
-            <div class="card">
-                <div class="icon">🌐</div>
-                <h3>Netlify</h3>
-                <p>
-                    Automatically deploying my website whenever I push changes.
-                </p>
-            </div>
-
         </div>
+    </div>
 
-    </section>
-
-
-    <!-- Projects -->
-    <section id="projects" class="section projects">
-
-        <h2>My Practice Project</h2>
-
-        <div class="project-box">
-
-            <div>
-                <span class="project-tag">HTML • CSS • JavaScript</span>
-
-                <h3>GitHub Practice Website</h3>
-
-                <p>
-                    A simple website created to understand Git workflows,
-                    GitHub repositories and continuous deployment.
-                </p>
+    <!-- Currency Converter Modal -->
+    <div class="modal" id="currencyModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Currency Converter</h2>
+                <button class="close-btn" data-close="currencyModal">×</button>
             </div>
+            <div class="modal-body">
+                <div class="currency-converter">
+                    <div class="currency-input-group">
+                        <label>Amount:</label>
+                        <input type="number" id="currencyAmount" value="1" min="0" step="0.01">
+                    </div>
+                    
+                    <div class="currency-selects">
+                        <div class="currency-select-group">
+                            <label>From:</label>
+                            <select id="currencyFrom">
+                                <option value="USD">USD - US Dollar</option>
+                                <option value="EUR">EUR - Euro</option>
+                                <option value="GBP">GBP - British Pound</option>
+                                <option value="JPY">JPY - Japanese Yen</option>
+                                <option value="CNY">CNY - Chinese Yuan</option>
+                                <option value="INR">INR - Indian Rupee</option>
+                                <option value="AUD">AUD - Australian Dollar</option>
+                                <option value="CAD">CAD - Canadian Dollar</option>
+                                <option value="CHF">CHF - Swiss Franc</option>
+                                <option value="KRW">KRW - South Korean Won</option>
+                                <option value="BRL">BRL - Brazilian Real</option>
+                                <option value="MXN">MXN - Mexican Peso</option>
+                            </select>
+                        </div>
 
-            <div class="status">
-                <span class="dot"></span>
-                Live Deployment
+                        <button class="swap-btn" id="swapCurrency">⇄</button>
+
+                        <div class="currency-select-group">
+                            <label>To:</label>
+                            <select id="currencyTo">
+                                <option value="USD">USD - US Dollar</option>
+                                <option value="EUR" selected>EUR - Euro</option>
+                                <option value="GBP">GBP - British Pound</option>
+                                <option value="JPY">JPY - Japanese Yen</option>
+                                <option value="CNY">CNY - Chinese Yuan</option>
+                                <option value="INR">INR - Indian Rupee</option>
+                                <option value="AUD">AUD - Australian Dollar</option>
+                                <option value="CAD">CAD - Canadian Dollar</option>
+                                <option value="CHF">CHF - Swiss Franc</option>
+                                <option value="KRW">KRW - South Korean Won</option>
+                                <option value="BRL">BRL - Brazilian Real</option>
+                                <option value="MXN">MXN - Mexican Peso</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="convert-btn" id="convertBtn">Convert</button>
+
+                    <div class="currency-result" id="currencyResult">
+                        <div class="result-display">Enter amount and click Convert</div>
+                    </div>
+
+                    <div class="exchange-rate-info" id="exchangeRateInfo"></div>
+                </div>
             </div>
-
         </div>
-
-    </section>
-
-
-    <!-- Footer -->
-    <footer>
-        <p>Built with ❤️ using HTML, CSS & JavaScript</p>
-        <p>Learning by building real projects 🚀</p>
-    </footer>
-
+    </div>
 
     <script src="script.js"></script>
-
 </body>
 </html>
