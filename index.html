@@ -3,18 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Practice</title>
+    <title>My CI/CD Project</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <div class="container">
-        <h1>GitHub Practice Project</h1>
-        <p id="message">Learning Git and GitHub with real-world practice.</p>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">🚀 Pranav.dev</div>
 
-        <button onclick="changeMessage()">Click Me</button>
-    </div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+        </div>
+
+        <button id="themeBtn">🌙</button>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <span class="badge">⚡ GitHub → Netlify CI/CD</span>
+
+            <h1>
+                My First
+                <span>CI/CD Project</span>
+            </h1>
+
+            <p id="message">
+                Learning Git, GitHub and automatic deployment through real-world practice.
+            </p>
+
+            <div class="buttons">
+                <button id="changeBtn" class="primary-btn">
+                    Change Message
+                </button>
+
+                <button id="countBtn" class="secondary-btn">
+                    Click Me
+                </button>
+            </div>
+
+            <p class="counter">
+                Button clicked:
+                <strong id="count">0</strong> times
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- About -->
+    <section id="about" class="section">
+
+        <h2>What I'm Learning</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">📦</div>
+                <h3>Git</h3>
+                <p>
+                    Version control for tracking changes in my project.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🐙</div>
+                <h3>GitHub</h3>
+                <p>
+                    Storing my code online and managing the repository.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🌐</div>
+                <h3>Netlify</h3>
+                <p>
+                    Automatically deploying my website whenever I push changes.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Projects -->
+    <section id="projects" class="section projects">
+
+        <h2>My Practice Project</h2>
+
+        <div class="project-box">
+
+            <div>
+                <span class="project-tag">HTML • CSS • JavaScript</span>
+
+                <h3>GitHub Practice Website</h3>
+
+                <p>
+                    A simple website created to understand Git workflows,
+                    GitHub repositories and continuous deployment.
+                </p>
+            </div>
+
+            <div class="status">
+                <span class="dot"></span>
+                Live Deployment
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>Built with ❤️ using HTML, CSS & JavaScript</p>
+        <p>Learning by building real projects 🚀</p>
+    </footer>
+
 
     <script src="script.js"></script>
+
 </body>
 </html>
